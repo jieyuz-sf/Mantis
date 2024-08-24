@@ -1,5 +1,37 @@
 data:
   - 
+    name: "n2"
+    type: json
+    path: "/export/share/jieyu/mantis_data/v3-multi-2.json"
+    format: chat
+    split: train
+    shuffle: true
+  
+  - 
+    name: "n2mc"
+    type: json
+    path: "/export/share/jieyu/mantis_data/v3-multi-2_mc.json"
+    format: chat
+    split: train
+    shuffle: true
+  
+  - 
+    name: "n2"
+    type: json
+    path: "/export/share/jieyu/mantis_data/v3-multi-2.json"
+    format: chat
+    split: train
+    shuffle: true
+  
+  - 
+    name: "n2mc"
+    type: json
+    path: "/export/share/jieyu/mantis_data/v3-multi-2_mc.json"
+    format: chat
+    split: train
+    shuffle: true
+  
+  - 
     name: "nlvr2"
     type: huggingface
     path: "TIGER-Lab/Mantis-Instruct"
