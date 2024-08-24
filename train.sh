@@ -23,7 +23,7 @@ echo $2
 source /export/share/zixianma/miniconda/bin/activate
 conda activate mantis
 
-cd /export/share/ayan/VLM/LLaVA
+cd /export/share/jieyu/Mantis
 bash scripts/v1_5/finetune_7b.sh
 
 cd /export/share/jieyu/xgen-mm-eval-jieyu/
