@@ -42,7 +42,7 @@ fi
 HF_HOME=/export/share/jieyu/cache/
 HF_TOKEN="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"
 
-hf_hub_user_name="zixianma" # set this will push the model to your hub after training
+hf_hub_user_name="" # set this will push the model to your hub after training
 max_seq_len=8192
 lora_enabled=false
 qlora_enabled=false
