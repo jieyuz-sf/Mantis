@@ -27,18 +27,20 @@ if [ "$HF_HUB_OFFLINE" = 1 ]; then
 else
     push_to_hub=True
 fi
-if [ -z $HF_HOME ]; then
-    echo "HF_HOME is empty, set to default '~/.cache/huggingface/'"
-    export HF_HOME="~/.cache/huggingface/"
-fi
-if [ -z $HF_TOKEN ]; then
-    echo "HF token is empty, try loading from '$HF_HOME/token'"
-    export HF_TOKEN=$(eval "cat ${HF_HOME}/token")
-fi
-if [ -z $HF_TOKEN ]; then
-    echo "HF token cannot be found, please set your HF token"
-    exit 1
-fi
+# if [ -z $HF_HOME ]; then
+#     echo "HF_HOME is empty, set to default '~/.cache/huggingface/'"
+#     export HF_HOME="~/.cache/huggingface/"
+# fi
+# if [ -z $HF_TOKEN ]; then
+#     echo "HF token is empty, try loading from '$HF_HOME/token'"
+#     export HF_TOKEN=$(eval "cat ${HF_HOME}/token")
+# fi
+# if [ -z $HF_TOKEN ]; then
+#     echo "HF token cannot be found, please set your HF token"
+#     exit 1
+# fi
+HF_HOME=/export/share/jieyu/cache/
+HF_TOKEN="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"
 
 hf_hub_user_name="zixianma" # set this will push the model to your hub after training
 max_seq_len=8192
@@ -68,12 +70,13 @@ echo "RUN_NAME = $RUN_NAME"
 
 hub_model_id="${hf_hub_user_name}/${RUN_NAME}" # the hub model id
 hub_token=$HF_TOKEN # set in .bashrc or replace with your own token
-if [ -z $hf_hub_user_name ]; then
-    echo "hf_hub_user_name is empty, do not push to hub"
-    push_to_hub=False
-else
-    echo "hf_hub_user_name = $hf_hub_user_name"
-fi
+# if [ -z $hf_hub_user_name ]; then
+#     echo "hf_hub_user_name is empty, do not push to hub"
+#     push_to_hub=False
+# else
+#     echo "hf_hub_user_name = $hf_hub_user_name"
+# fi
+push_to_hub=False
 
 # resume from checkpoint
 resume_from_checkpoint=""
