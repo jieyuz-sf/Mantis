@@ -41,7 +41,7 @@ hf_hub_user_name="zixianma" # set this will push the model to your hub after tra
 max_seq_len=8192
 lora_enabled=false
 qlora_enabled=false
-OUTPUT_DIR="../../checkpoints"
+OUTPUT_DIR="/export/share/jieyu/mantis_ckpt"
 global_batch_size=128
 mllava_type="llava"
 
@@ -172,7 +172,7 @@ accelerate launch --config_file=$config_file \
     --tf32 True \
     --gradient_checkpointing True \
     --dataloader_num_workers $WORKERS \
-    --report_to wandb \
+    --report_to "none" \
     --do_train \
     --lora_enabled $lora_enabled \
     --qlora_enabled $qlora_enabled \
