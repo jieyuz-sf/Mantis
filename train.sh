@@ -3,16 +3,12 @@
 
 export HF_HOME=/export/share/jieyu/cache/
 
-#export WANDB_PROJECT="vlm-llava" ## set up wandb prject name
-export ROOT_DIR="/export/share/ayan/"
 
 ## change for each ablation run
-export JSON_DIR=$1
-# export JSON_DIR="json_jieyu/v0_0.1.json"
+export DATA_CONFIG=/export/share/jieyu/mantis_data/$1
 echo $1
 
 export RUN_NAME=$2
-# export RUN_NAME="llava-v1.5-7b-mix-v0-0.1"
 echo $2
 
 
@@ -23,8 +19,8 @@ echo $2
 source /export/share/zixianma/miniconda/bin/activate
 conda activate mantis
 
-cd /export/share/jieyu/Mantis
-bash scripts/v1_5/finetune_7b.sh
+cd /export/share/jieyu/Mantis/train
+bash scripts/train_mllava_mma.sh $2
 
-cd /export/share/jieyu/xgen-mm-eval-jieyu/
-bash eval_llava.sh $2
+# cd /export/share/jieyu/xgen-mm-eval-jieyu/
+# bash eval_llava.sh $2
