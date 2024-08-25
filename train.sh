@@ -19,7 +19,7 @@ echo $2
 source /export/share/zixianma/miniconda/bin/activate
 conda activate mantis
 
-cd /export/share/jieyu/Mantis/train
+cd /export/share/jieyu/Mantis/mantis/train
 bash scripts/train_mllava_mma.sh $2
 
 # cd /export/share/jieyu/xgen-mm-eval-jieyu/
