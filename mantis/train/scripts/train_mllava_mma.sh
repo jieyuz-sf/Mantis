@@ -1,8 +1,12 @@
 nvidia-smi
 nvcc --version
 
-export CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15" # 
+# export CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15" # 
+# echo "CUDA VISIABLE DEVICES: $CUDA_VISIBLE_DEVICES"
+
+export CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7" # 
 echo "CUDA VISIABLE DEVICES: $CUDA_VISIBLE_DEVICES"
+
 # offline training
 # export HF_HUB_OFFLINE=1
 # export TRANSFORMERS_OFFLINE=1
@@ -48,19 +52,19 @@ mllava_type="llava"
 # RUN_NAME="${mllava_type}_clip_llama3_8b_finetune"
 RUN_NAME=$1
 # RUN_NAME="${mllava_type}_siglip_llama3_8b_finetune"
-export WANDB_PROJECT="Mantis"
-if [ $lora_enabled = true ]; then
-    echo "lora is enabled"
-    if [ $qlora_enabled = true ]; then
-        echo "qlora & dora is enabled"
-        RUN_NAME="${RUN_NAME}_${max_seq_len}_qlora"
-    else
-        RUN_NAME="${RUN_NAME}_${max_seq_len}_lora"
-    fi
-else
-    echo "lora is disabled"
-    RUN_NAME="${RUN_NAME}_${max_seq_len}"
-fi
+# export WANDB_PROJECT="Mantis"
+# if [ $lora_enabled = true ]; then
+#     echo "lora is enabled"
+#     if [ $qlora_enabled = true ]; then
+#         echo "qlora & dora is enabled"
+#         RUN_NAME="${RUN_NAME}_${max_seq_len}_qlora"
+#     else
+#         RUN_NAME="${RUN_NAME}_${max_seq_len}_lora"
+#     fi
+# else
+#     echo "lora is disabled"
+#     RUN_NAME="${RUN_NAME}_${max_seq_len}"
+# fi
 echo "RUN_NAME = $RUN_NAME"
 
 hub_model_id="${hf_hub_user_name}/${RUN_NAME}" # the hub model id
@@ -155,7 +159,7 @@ accelerate launch --config_file=$config_file \
     --hub_model_id $hub_model_id \
     --hub_token "$hub_token" \
     --push_to_hub $push_to_hub \
-    --num_train_epochs 10 \
+    --num_train_epochs 1 \
     --per_device_train_batch_size $per_device_train_batch_size \
     --per_device_eval_batch_size 1 \
     --gradient_accumulation_steps $gradient_accumulation_steps \
