@@ -14,7 +14,6 @@ echo "CUDA VISIABLE DEVICES: $CUDA_VISIBLE_DEVICES"
 
 DATA_CONFIG_FILE=$DATA_CONFIG 
 
-fi
 if [ "$TRANSFORMERS_OFFLINE" = 1 ]; then
     echo "Warning: Offline mode is enabled. Using local copy of models"
     model_name_or_path="{local_model_path}"
