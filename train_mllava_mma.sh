@@ -8,12 +8,7 @@ echo "CUDA VISIABLE DEVICES: $CUDA_VISIBLE_DEVICES"
 # export TRANSFORMERS_OFFLINE=1
 # export HF_DATASETS_OFFLINE=1
 
-if [ "$HF_DATASETS_OFFLINE" = 1 ]; then
-    echo "Warning: Offline mode is enabled. Using local copy of datasets"
-    DATA_CONFIG_FILE="./data_configs/train_config_offline.yaml"
-else
-    # DATA_CONFIG_FILE="./data_configs/mantis_instruct.yaml" # change to this for offical training
-    DATA_CONFIG_FILE="/export/agentstudio-family/zixian/Mantis/data/examples/chat/data_config_mma.yaml" 
+DATA_CONFIG_FILE=$DATA_CONFIG 
 
 fi
 if [ "$TRANSFORMERS_OFFLINE" = 1 ]; then
