@@ -44,8 +44,8 @@ HF_TOKEN="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"
 
 hf_hub_user_name="" # set this will push the model to your hub after training
 max_seq_len=8192
-lora_enabled=false
-qlora_enabled=false
+lora_enabled=true
+qlora_enabled=true
 OUTPUT_DIR="/export/share/jieyu/mantis_ckpt"
 global_batch_size=128
 mllava_type="llava"
