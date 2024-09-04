@@ -22,5 +22,4 @@ conda activate mantis
 cd /export/share/jieyu/Mantis/mantis/train
 bash scripts/train_mllava_mma.sh $2
 
-# cd /export/share/jieyu/xgen-mm-eval-jieyu/
-# bash eval_llava.sh $2
+/export/share/jieyu/VLMEvalKit-mantis/eval.sh $2 $3
