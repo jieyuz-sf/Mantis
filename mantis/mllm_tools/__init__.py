@@ -29,7 +29,8 @@ def get_mllava(model_name: str):
     elif model_name == "mantis-8b-siglip-llama3-obelics-min":
         return MLlava(model_path="Mantis-VL/llava_siglip_llama3_8b_finetune_obelics_min_8192_lora")
     else:
-        raise ValueError(f'Invalid model name: {model_name}')
+        # raise ValueError(f'Invalid model name: {model_name}')
+        return MLlava(model_path=model_name)
     
 def get_mantis_idefics(model_name:str):
     from .idefics2_eval import Idefics2
@@ -140,5 +141,6 @@ def MLLM_Models(model_name:str):
         else:
             return partial(get_mllava, model_name=model_name)
     else:
-        raise ValueError(f'Invalid model name: {model_name}, must be one of {MLLM_LIST}')
+        # raise ValueError(f'Invalid model name: {model_name}, must be one of {MLLM_LIST}')
+        return partial(get_mllava, model_name=model_name)
     
