@@ -19,6 +19,7 @@ class MLlava():
         attn_implementation = "flash_attention_2" if is_flash_attn_2_available() else None
         attn_implementation = None
         print(f"Using {attn_implementation} for attention implementation")
+        print(f"loading {model_path}")
         if "llava_next" in model_path:
             from mantis.models.mllava_next import MLlavaNextProcessor, LlavaNextForConditionalGeneration
             self.model = LlavaNextForConditionalGeneration.from_pretrained(model_path, device_map="cuda", torch_dtype=torch.bfloat16, attn_implementation=attn_implementation).eval()
