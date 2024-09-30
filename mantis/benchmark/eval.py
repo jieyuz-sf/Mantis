@@ -98,8 +98,9 @@ def main(
         with open(template_file, 'r') as f:
             all_templates[template_file.stem] = f.read()
     
-    results_dir = Path(os.path.dirname(__file__)) / results_dir
-    results_path = results_dir / dataset_name / f'{model_name}_{num_shots}_shots.jsonl'
+    # results_dir = Path(os.path.dirname(__file__)) / results_dir
+    # results_path = results_dir / dataset_name / f'{model_name}_{num_shots}_shots.jsonl'
+    results_path = f'{model_name}/{dataset_name}_{num_shots}_shots.jsonl'
     results_path.parent.mkdir(parents=True, exist_ok=True)
     
     if results_path.exists():
