@@ -14,7 +14,7 @@ cd /export/share/jieyu/Mantis/mantis/benchmark
 # for m in v4-0.5b v4-both-0.5b v4-mc-0.5b
 
 # for m in v4-all-both-0.2b v4-all-both-sz-0.2b
-for m in dc-both-0.05 dc-both-0.1 dc-both-0.2 dc-both-0.5
+for m in dc-sz-both-0.05 dc-sz-both-0.1 dc-sz-both-0.2 dc-sz-both-0.5
 do
   bash eval_single_model.sh /export/share/jieyu/mantis_ckpt/Mantis-8B-siglip-llama3-pretraind/$m/checkpoint-final
 done
